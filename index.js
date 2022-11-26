@@ -10,7 +10,7 @@ const createTimerAnimator = () => {
     let timerMinutes = Math.floor((time - (timerHours * 3600)) / 60);
     let timerSeconds = time - ((timerMinutes * 60) + (timerHours * 3600));
 
-    timerEl.innerHTML = timerHours + ":" + timerMinutes + ":" + timerSeconds;
+    timerEl.innerHTML = ('0' + timerHours).slice(-2) + ":" + ('0' + timerMinutes).slice(-2) + ":" + ('0' + timerSeconds).slice(-2);
 
     let myInterval = setInterval(() => {
 
@@ -26,7 +26,7 @@ const createTimerAnimator = () => {
       }
       
       timerSeconds--;
-      timerEl.innerHTML = timerHours + ":" + timerMinutes + ":" + timerSeconds;
+      timerEl.innerHTML = ('0' + timerHours).slice(-2) + ":" + ('0' + timerMinutes).slice(-2) + ":" + ('0' + timerSeconds).slice(-2);
 
       if(timerHours === 0 && timerMinutes === 0 && timerSeconds === 0) {
         clearInterval(myInterval);
