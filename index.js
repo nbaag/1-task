@@ -7,7 +7,7 @@ const timerEl = document.querySelector('span');
 const createTimerAnimator = () => {
   return (seconds) => {
     let time = seconds;
-    
+
     let timerHours = Math.floor(time / 3600);
     let timerMinutes = Math.floor((time - (timerHours * 3600)) / 60);
     let timerSeconds = time - ((timerMinutes * 60) + (timerHours * 3600));
@@ -42,6 +42,7 @@ const animateTimer = createTimerAnimator();
 inputEl.addEventListener('input', () => {
   // Очистите input так, чтобы в значении
   // оставались только числа
+  inputEl.value = inputEl.value.replace(/[^0-9]/g, '')
 });
 
 buttonEl.addEventListener('click', () => {
